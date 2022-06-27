@@ -101,7 +101,7 @@ impl AssociatedTypesTrait for String {
 fn check_generic_start() {
     let test = String::from("test");
 
-    let _: Box<Future<Item = i32, Error = io::Error>> = Box::new(Fsm::start(
+    let _: Box<dyn Future<Item = i32, Error = io::Error>> = Box::new(Fsm::start(
         StartType {
             _data: 0,
             _phan: Default::default(),

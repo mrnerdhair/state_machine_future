@@ -45,7 +45,7 @@ mod some {
     mod module {
         mod inner {
             #[derive(StateMachineFuture)]
-            pub(in some::module) enum PubInSomeModule {
+            pub(in super::super) enum PubInSomeModule {
                 #[state_machine_future(start)]
                 #[state_machine_future(ready)]
                 #[state_machine_future(error)]

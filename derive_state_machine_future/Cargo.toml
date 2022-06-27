@@ -9,6 +9,7 @@ name = "derive_state_machine_future"
 repository = "https://github.com/fitzgen/state_machine_future"
 version = "0.2.0"
 workspace = ".."
+edition = "2018"
 
 [badges.travis-ci]
 repository = "fitzgen/state_machine_future"

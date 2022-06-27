@@ -1,7 +1,6 @@
 //! Test that the appropriate start method is generated for the original enum.
 
 extern crate futures;
-#[macro_use]
 extern crate state_machine_future;
 
 use futures::Poll;

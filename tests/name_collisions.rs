@@ -22,9 +22,6 @@ macro_rules! state_machine_future {
 #[derive(StateMachineFuture)]
 pub enum Fsm {
     #[state_machine_future(start)]
-    #[state_machine_future(transitions(Future))]
-    Async,
-
     #[state_machine_future(transitions(Poll))]
     Future,
 
@@ -40,12 +37,6 @@ pub enum Fsm {
 }
 
 impl PollFsm for Fsm {
-    fn poll_async<'a>(
-        _: &'a mut state_machine_future::RentToOwn<'a, Async>,
-    ) -> futures::Poll<AfterAsync, ()> {
-        unimplemented!()
-    }
-
     fn poll_future<'a>(
         _: &'a mut state_machine_future::RentToOwn<'a, Future>,
     ) -> futures::Poll<AfterFuture, ()> {

@@ -6,8 +6,10 @@ use proc_macro2::{self, Ident, Span};
 use quote::{ToTokens, TokenStreamExt};
 use syn;
 
-use ast::{State, StateMachine};
-use phases;
+use crate::{
+    ast::{State, StateMachine},
+    phases,
+};
 
 fn doc_string<S: AsRef<str>>(s: S) -> proc_macro2::TokenStream {
     let s = s.as_ref();

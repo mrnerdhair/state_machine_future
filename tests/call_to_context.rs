@@ -16,11 +16,11 @@ pub struct ExternalSource<T> {
 
 pub struct Context<T> {
     pub external_source: ExternalSource<T>,
-    pub lazy_future: Option<Box<Future<Item = T, Error = ()>>>,
+    pub lazy_future: Option<Box<dyn Future<Item = T, Error = ()>>>,
 }
 
 impl<T: Clone + 'static> Context<T> {
-    fn load_from_external_source(&mut self) -> &mut Box<Future<Item = T, Error = ()>> {
+    fn load_from_external_source(&mut self) -> &mut Box<dyn Future<Item = T, Error = ()>> {
         let value = &self.external_source.value;
 
         self.lazy_future
