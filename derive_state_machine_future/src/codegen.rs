@@ -163,7 +163,7 @@ impl ToTokens for StateMachine<phases::ReadyForCodegen> {
                 let s_ident = &s.ident;
                 match s.fields.style {
                     darling::ast::Style::Unit => quote! {
-                        let _ = ::std::mem::replace(xxx, #ident::#s_ident);
+                        let _ = ::core::mem::replace(xxx, #ident::#s_ident);
                     },
                     darling::ast::Style::Tuple => {
                         let fields = s.fields.fields.iter().map(|_| {
@@ -172,7 +172,7 @@ impl ToTokens for StateMachine<phases::ReadyForCodegen> {
                             }
                         });
                         quote! {
-                            let _ = ::std::mem::replace(
+                            let _ = ::core::mem::replace(
                                 xxx,
                                 #ident::#s_ident( #( #fields ),* ),
                             );
@@ -194,7 +194,7 @@ impl ToTokens for StateMachine<phases::ReadyForCodegen> {
                         });
 
                         quote! {
-                            let _ = ::std::mem::replace(
+                            let _ = ::core::mem::replace(
                                 xxx,
                                 #ident::#s_ident { #( #fields ),* },
                             );
